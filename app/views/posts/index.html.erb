@@ -1,7 +1,7 @@
 <h1>Hello world!</h1>
 
 <%= turbo_frame_tag :posts do %>
-<ul>
+<ul id='all-posts'>
   <% @posts.each do |post| %>
     <li>
     <%= link_to post.title, post %>
@@ -10,3 +10,6 @@
   <% end %>
 </ul>
 <% end %>
+
+<turbo-frame src='posts/new' id='new-post'>
+</turbo-frame>
