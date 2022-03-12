@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(form_params)
     if @post.save
-      redirect_to root_url
+      respond_to do |format|
+        format.turbo_stream
+      end
     else
       render :new
     end
