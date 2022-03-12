@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   private
 
   def form_params 
@@ -33,13 +37,13 @@ class PostsController < ApplicationController
   end
 
   def respond_with_stream
-      respond_to do |format|
+    respond_to do |format|
 
-        format.turbo_stream do
-          return update_stream if Post.count.eql?(1)
-          prepend_stream
-        end
-
+      format.turbo_stream do
+        return update_stream if Post.count.eql?(1)
+        prepend_stream
       end
+
+    end
   end
 end
