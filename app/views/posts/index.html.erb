@@ -14,7 +14,7 @@
 
 <%= turbo_frame_tag :posts do %>
 <ul id='all-posts'>
-  <%= render partial: 'post', collection: @posts %>
+  <%= render(partial: 'post', collection: @posts) || 'There are no posts to display!' %>
 </ul>
 <% end %>
 
