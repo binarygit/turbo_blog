@@ -1,9 +1,9 @@
 <%  post.persisted? ? id = dom_id(post) : id = 'new-post' %>
 
 <turbo-frame id='<%= id %>'>
-  <%= form_with model: post do |f| %>
+  <%= form_with model: post, data: { controller: :form, action: 'turbo:submit-end->form#clear' } do |f| %>
     Title: <%= f.text_field :title %>
     Body: <%= f.text_area :body %>
-    <%= f.submit %>
+  <%= f.submit %>
 <% end %>
 </turbo-frame>
