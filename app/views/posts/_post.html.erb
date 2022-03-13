@@ -1,4 +1,6 @@
-<li id='<%= dom_id post %>'>
+<turbo-frame id='<%= dom_id post %>'>
+<li>
   <%= link_to post.title, post %>
   <span><%= link_to 'edit', edit_post_path(post) %></span>
 </li>
+</turbo-frame>
