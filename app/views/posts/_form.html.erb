@@ -1,0 +1,9 @@
+<%  post.persisted? ? id = 'edit-post' : id = 'new-post' %>
+
+<turbo-frame id='<%= id %>'>
+  <%= form_with model: post do |f| %>
+    Title: <%= f.text_field :title %>
+    Body: <%= f.text_area :body %>
+    <%= f.submit %>
+<% end %>
+</turbo-frame>
